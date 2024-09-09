@@ -57,19 +57,22 @@ function populateGalleriesAndAudio() {
         }
         
         if (audioContainer) {
-            // Update audio path to use relative path from the root
-            const audioPath = `/audio/${name.replace(/\s+/g, '_')}.mp3`;
-            const audio = document.createElement('audio');
-            audio.controls = true;
-            audio.src = audioPath;
-            
-            // Add error handling for audio loading
-            audio.onerror = () => {
-                console.error(`Failed to load audio for ${name}`);
-                audioContainer.textContent = `Audio for ${name} is not available.`;
-            };
-            
-            audioContainer.appendChild(audio);
+            // Add audio player
+            const audioPath = `/audio/${name}.mp3`;
+            fetch(audioPath)
+                .then(response => {
+                    if (response.ok) {
+                        const audio = document.createElement('audio');
+                        audio.controls = true;
+                        audio.src = audioPath;
+                        audioContainer.appendChild(audio);
+                    } else {
+                        audioContainer.style.display = 'none';
+                    }
+                })
+                .catch(() => {
+                    audioContainer.style.display = 'none';
+                });
         }
     });
 }
