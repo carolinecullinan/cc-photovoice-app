@@ -1,0 +1,617 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap');
+
+:root {
+    --light-earthy-tone: #F5F1E9; /* Light, warm beige */
+    --sandy-beige: #E5D6C1;
+    --soft-teal: rgba(74, 140, 127, 0.9);
+    --deep-ocean-blue: #1A3A59;
+    --forest-green: #2C5F2D;
+    --sunset-orange: #E67E5A;
+    --warm-cream: #FFF8E7; /* New color for background */
+    --dark-brown: #4A3C31; /* New color for text */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--dark-brown); /* Dark Brown for text */
+    background-color: var(--warm-cream); /* Warm Cream for background */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: #2C5F2D; /* Forest Green for headings */
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 1em;
+    color: #666;
+    text-align: center;
+}
+
+.intro, .outro {
+    padding: 5vh 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--sandy-beige); /* Sandy Beige */
+}
+
+.intro .content-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.intro h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.intro p {
+    margin-bottom: 1.5em;
+    text-align: justify;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-left: none;
+    padding-left: 0;
+}
+
+.photo-gallery-container {
+    width: 100%; /* Make it full width within the content-wrapper */
+    height: 60vh;
+    margin-bottom: 20px;
+    position: relative; /* Add this to ensure proper positioning of nav buttons */
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.audio-player-container {
+    width: 100%; /* Make it full width within the content-wrapper */
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    margin-top: 20px;
+}
+
+.audio-player-container audio {
+    width: 100%;
+    max-width: 300px;
+    background-color: var(--light-earthy-tone);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Webkit (Chrome, Safari) specific styles */
+.audio-player-container audio::-webkit-media-controls-panel {
+    background-color: var(--light-earthy-tone);
+}
+
+.audio-player-container audio::-webkit-media-controls-play-button,
+.audio-player-container audio::-webkit-media-controls-mute-button {
+    background-color: var(--soft-teal);
+    border-radius: 50%;
+}
+
+.audio-player-container audio::-webkit-media-controls-current-time-display,
+.audio-player-container audio::-webkit-media-controls-time-remaining-display {
+    color: var(--dark-brown);
+}
+
+.audio-player-container audio::-webkit-media-controls-timeline {
+    background-color: var(--sandy-beige);
+    border-radius: 4px;
+}
+
+/* Firefox specific styles */
+.audio-player-container audio::-moz-range-track {
+    background-color: var(--sandy-beige);
+}
+
+.audio-player-container audio::-moz-range-thumb {
+    background-color: var(--soft-teal);
+}
+
+/* Adjust the sticky-thing width if needed */
+.sticky-thing {
+    position: -webkit-sticky;
+    position: sticky;
+    width: 35%; /* Decreased from 25% to 20% */
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--soft-teal);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+article {
+    position: relative;
+    padding: 20px; /* Add padding to the article */
+    width: 80%; /* Increased from 75% to 80% */
+    margin-left: 10%; /* Decreased from 25% to 20% to match sticky-thing width */
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+    background-color: var(--warm-cream); /* Use the warm cream for the background */
+
+@media (min-width: 700px) {
+    margin-left: 5%; /* Decreased from 25% to 20% to match sticky-thing width */
+
+}
+
+}
+
+#chart {
+    font-family: 'Lora', serif;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    color: var(--warm-cream); /* Change text color in the sticky element */
+}
+
+.photo-gallery {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-gallery img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(74, 60, 49, 0.6); /* Darker, based on --dark-brown */
+    color: var(--warm-cream);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    z-index: 10; /* Ensure buttons are above images */
+}
+
+.gallery-nav:hover {
+    background: rgba(230, 126, 90, 0.8); /* Keep the hover color */
+}
+
+.gallery-nav.prev {
+    left: 20px;
+}
+
+.gallery-nav.next {
+    right: 20px;
+}
+
+/* You can add this for links if needed */
+a {
+    color: var(--sunset-orange);
+}
+
+a:hover {
+    color: var(--soft-teal);
+}
+
+.audio-player-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.audio-player-container audio {
+    width: 100%;
+    max-width: 300px;
+}
+
+.scrolly {
+    position: relative;
+    display: flex;
+    background-color: var(--warm-cream);
+    min-height: 100vh;
+    width: 100%; /* Ensure full width */
+}
+
+.step {
+    padding: 40px 0;
+    margin-bottom: 80px; /* Increased from 40px to 80px */
+    background-color: var(--light-earthy-tone);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove the line between sections */
+.step:not(:last-child)::after {
+    content: none;
+}
+
+.participant-name {
+    /* Remove if it exists */
+}
+
+/* Ensure the last step doesn't have extra margin at the bottom */
+.step:last-child {
+    margin-bottom: 0;
+}
+
+.scroll-arrow {
+    width: 20px;  /* Reduced size */
+    height: 20px;  /* Reduced size */
+    border: 3px solid #69b3a2;  /* Match the color of the bars in the bar chart */
+    border-left: 0;
+    border-top: 0;
+    transform: rotate(45deg);
+    margin: 20px auto 0;
+    opacity: 0.8;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) rotate(45deg);
+    }
+    40% {
+        transform: translateY(-10px) rotate(45deg);
+    }
+    60% {
+        transform: translateY(-5px) rotate(45deg);
+    }
+}
+
+/* Add this new rule to ensure proper positioning */
+.intro .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.collaboration {
+    font-size: 0.9em;
+    color: var(--deep-ocean-blue);
+    text-align: center;
+    margin: 0.2em 0;
+    font-style: italic;
+}
+
+.collaboration a {
+    color: #69b3a2;  /* Use the bar chart color for the links */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.collaboration a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #69b3a2;  /* Use the bar chart color for the underline */
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.collaboration a:hover {
+    color: #69b3a2;  /* Keep the hover color the same */
+}
+
+.collaboration a:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.subtitle {
+    font-size: 2em;
+    font-weight: 700;
+    color: #69b3a2;  /* Use the bar chart color for the subtitle text */
+    margin-top: 0.2em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #69b3a2;  /* Use the bar chart color for the underline */
+    padding-bottom: 0.2em;
+    display: inline-block;
+}
+
+.outro {
+    padding: 5vh 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--sandy-beige);
+}
+
+.outro .content-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outro p {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--dark-brown);
+    /* margin-bottom: 1.5em; */
+    text-align: justify;
+}
+
+#word-frequency-chart {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    margin: 2em auto 4em auto; /* Increased bottom margin from 2em to 4em */
+    display: flex;
+    justify-content: center;
+}
+
+.word-frequency-description {
+    width: 100%;
+    max-width: 640px;
+    margin: 2em auto 1em auto; /* Increased top margin from 1em to 2em */
+    text-align: justify;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--dark-brown);
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    background: var(--light-earthy-tone);
+    border: 1px solid var(--soft-teal);
+    border-radius: 4px;
+    pointer-events: none;
+    max-width: 220px;
+    color: var(--dark-brown);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip-highlight {
+    font-weight: bold;
+    color: #69b3a2;  /* Same color as the bars in the bar chart */
+}
+
+.tooltip-word {
+    font-weight: bold;
+    color: #69b3a2;  /* Same color as the bars in the bar chart */
+}
+
+.tooltip-frequency {
+    font-weight: bold;
+    color: #69b3a2;  /* Now also the same color as the bars in the bar chart */
+}
+
+.outro-scrolly {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--warm-cream);
+    min-height: 200vh;
+    width: 100%;
+}
+
+.sticky-chart {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--warm-cream);
+    z-index: 1;
+}
+
+#word-frequency-chart {
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+
+.outro-scrolly article {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    z-index: 2;
+}
+
+.outro-scrolly .step {
+    background-color: rgba(245, 241, 233, 0.9);
+    margin: 50vh auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.word-frequency-description .highlight-word {
+    color: #69b3a2;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#sentiment-chart {
+    width: 100%;
+    max-width: 640px;
+    height: 400px; /* Adjust this value as needed */
+    margin: 2em auto;
+    display: flex;
+    justify-content: center;
+}
+
+.chart-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+}
+
+.sentiment-description {
+    width: 100%;
+    max-width: 640px;
+    margin: 2em auto 1em auto;
+    text-align: justify;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--dark-brown);
+}
+
+.sentiment-description .highlight-word {
+    font-weight: bold;
+}
+
+.sentiment-description .highlight-word.neutral {
+    color: #E1A95F;  /* Use the same color as the neutral bar in the chart */
+}
+
+.sentiment-description .highlight-word.positive {
+    color: #2C5F2D;  /* Use the same darker green color as the positive bar in the chart */
+}
+
+/*.conclusion {
+    padding: 5vh 0;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--sandy-beige);
+}
+
+.conclusion .content-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conclusion p {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--dark-brown);
+    margin-bottom: 1.5em;
+    text-align: justify;
+}*/
+
+.separator {
+    text-align: center;
+    font-size: 24px;
+    color: var(--dark-brown);
+    margin: 2em 0;
+    letter-spacing: 0.5em;
+}
+.methodology {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    font-size: 2em;
+    color: var(--dark-brown);
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+/* .methodology {
+    padding: 5vh 0;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--sandy-beige);
+} */
+
+.method .content-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.method p {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--dark-brown);
+    margin-bottom: 1.5em;
+    text-align: justify;
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human-Nature Interactions in El Astillero, Nicaragua</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+</head>
+<body>
+    <main>
+        <section class="intro">
+            <div class="content-wrapper">
+                <h1>Human-Nature Interactions in El Astillero, Nicaragua</h1>
+                <h2 class="subtitle">A Photo-Voice Project</h2>
+                <p class="collaboration">
+                    A <a href="https://casacongo.org/" target="_blank" rel="noopener noreferrer">Casa Congo</a> Collaboration
+                </p>
+                <p class="collaboration">
+                    <a href="https://www.carolinecullinan.com/" target="_blank" rel="noopener noreferrer">Caroline Cullinan</a>
+                </p>
+                <p>Human-nature interactions can be complex. Nestled between the Pacific Coast and the Chacocente Wild Refuge in Nicaragua, folks of the El Astillero community recognize their interconnectedness with the natural world around them.</p>
+                <p>In an attempt to better understand the complexity and interconnectedness of human and environment in this fishing village, a photo-voice project was carried out. Alvaro, Douglas, Gabriela, Karen, Marcelo, Maria Elena, Medina, Victor, and Yorling, project participants and local members from the community, were given disposable cameras and asked to photographically capture aspects of their environment that called to the human-nature experience in their community. Upon taking and developing their photos, participants were then asked to speak a bit about the images that they captured.</p>
+                <p>Scroll below to experience the environment through the eyes of this community.</p>
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <section class="scrolly">
+            <div class="sticky-thing">
+                <div id="chart"></div>
+            </div>
+            <article>
+                <div class="step" data-step="1">
+                    <div class="content-wrapper">
+                        <div class="photo-gallery-container">
+                            <button class="gallery-nav prev">&lt;</button>
+                            <div class="photo-gallery" id="gallery-Alvaro"></div>
+                            <button class="gallery-nav next">&gt;</button>
+                        </div>
+                        <div class="audio-player-container" id="audio-Alvaro"></div>
+                    </div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="content-wrapper">
+                        <div class="photo-gallery-container">
+                            <button class="gallery-nav prev">&lt;</button>
+                            <div class="photo-gallery" id="gallery-Douglas"></div>
+                            <button class="gallery-nav next">&gt;</button>
+                        </div>
+                        <div class="audio-player-container" id="audio-Douglas"></div>
+                    </div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="content-wrapper">
+                        <div class="photo-gallery-container">
+                            <button class="gallery-nav prev">&lt;</button>
+                            <div class="photo-gallery" id="gallery-Gabriela"></div>
+                            <button class="gallery-nav next">&gt;</button>
+                        </div>
+                        <div class="audio-player-container" id="audio-Gabriela"></div>
+                    </div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="content-wrapper">
+                        <div class="photo-gallery-container">
+                            <button class="gallery-nav prev">&lt;</button>
+                            <div class="photo-gallery" id="gallery-Karen"></div>
+                            <button class="gallery-nav next">&gt;</button>
+                        </div>
+                        <div class="audio-player-container" id="audio-Karen"></div>
+                    </div>
+                </div>
+                <div class="step" data-step="5">
+                    <div class="content-wrapper">
+                        <div class="photo-gallery-container">
+                            <button class="gallery-nav prev">&lt;</button>
+                            <div class="photo-gallery" id="gallery-Marcelo"></div>
+                            <button class="gallery-nav next">&gt;</button>
+                        </div>
+                        <div class="audio-player-container" id="audio-Marcelo"></div>
+                    </div>
+                </div>
+                <div class="step" data-step="6">
+                    <div class="content-wrapper">
+                        <div class="photo-gallery-container">
+                            <button class="gallery-nav prev">&lt;</button>
+                            <div class="photo-gallery" id="gallery-MariaElena"></div>
+                            <button class="gallery-nav next">&gt;</button>
+                        </div>
+                        <div class="audio-player-container" id="audio-MariaElena"></div>
+                    </div>
+                </div>
+                <div class="step" data-step="7">
+                    <div class="content-wrapper">
+                        <div class="photo-gallery-container">
+                            <button class="gallery-nav prev">&lt;</button>
+                            <div class="photo-gallery" id="gallery-Medina"></div>
+                            <button class="gallery-nav next">&gt;</button>
+                        </div>
+                        <div class="audio-player-container" id="audio-Medina"></div>
+                    </div>
+                </div>
+                <div class="step" data-step="8">
+                    <div class="content-wrapper">
+                        <div class="photo-gallery-container">
+                            <button class="gallery-nav prev">&lt;</button>
+                            <div class="photo-gallery" id="gallery-Victor"></div>
+                            <button class="gallery-nav next">&gt;</button>
+                        </div>
+                        <div class="audio-player-container" id="audio-Victor"></div>
+                    </div>
+                </div>
+                <div class="step" data-step="9">
+                    <div class="content-wrapper">
+                        <div class="photo-gallery-container">
+                            <button class="gallery-nav prev">&lt;</button>
+                            <div class="photo-gallery" id="gallery-Yorling"></div>
+                            <button class="gallery-nav next">&gt;</button>
+                        </div>
+                        <div class="audio-player-container" id="audio-Yorling"></div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="outro">
+            <div class="content-wrapper">
+                <p>After photos were taken, interviews were conducted, and the artistic components of this project were all said and done, an analytical approach to El Astillero's interconnectedness and symbiotic relationship followed. Interview recordings were transcribed to text, and that text was then analyzed. Words, word use, and word frequency were considered. We also explored the sentiment associated with the words used by participants as they described their photos and relationships with nature.</p>
+                
+                <div id="word-frequency-chart"></div>
+
+                <p class="word-frequency-description">
+                    Some of the most frequently used words that photo-voice participants used to describe their photos include: 
+                    <span class="highlight-word">naturaleza</span> (i.e., nature); 
+                    <span class="highlight-word">casa</span> (i.e., house); 
+                    <span class="highlight-word">arboles</span> (i.e., trees); 
+                    <span class="highlight-word">mar</span> (i.e., sea); 
+                    <span class="highlight-word">plantas</span> (i.e., plants); 
+                    <span class="highlight-word">lluvia</span> (i.e., rain); 
+                    <span class="highlight-word">cambio</span> (i.e., change); 
+                    <span class="highlight-word">pesca</span> (i.e., fishing); 
+                    <span class="highlight-word">basura</span> (i.e., trash); 
+                    <span class="highlight-word">agua</span> (i.e., water); and 
+                    <span class="highlight-word">pescado</span> (i.e., fish).
+                </p>
+
+                <p class="word-frequency-description">
+                    Interestingly, some of these words relate to overall concepts of livelihood (i.e., <span class="highlight-word">casa</span> and <span class="highlight-word">agua</span>).  Even more nuanced, many of the most frequently used words hint to potential human-nature interactions for economic livelihood (i.e., <span class="highlight-word">mar</span>, <span class="highlight-word">pesca</span>, <span class="highlight-word">pescado</span>).
+                </p>
+
+                <div class="chart-container">
+                    <div id="sentiment-chart"></div>
+                </div>
+
+                <p class="sentiment-description">
+                    And when photo-voice participants talked about their photos and the human-nature interactions that they captured, an <span class="highlight-word neutral">overall neutral sentiment</span> was expressed. Despite this overall neutrality, participants still expressed <span class="highlight-word positive">more positive sentiment</span> than negative sentiment.
+                </p>
+
+                <div class="separator">&#8230;</div>
+
+                <p>Considered together, all of this can provide a better understanding of some of the most prominent natural elements in participants' human-nature interactions and how they feel about it all.  The findings of this project indicate that members of the El Astillero community have a positive relationship with the natural world around them.  Analytical components of this project hint to the fact that folks in El Astillero value the economic livelihood that many natural elements bring to them.  More specifically, and while less apparent when looking at the captured photos alone, participants' words in interviews really stress the importance of fishery-related livelihoods for the community.</p>
+                
+                <p>In all, human-nature interactions can be complex.  In El Astillero, though, things are rather simple.  This coastal community embraces the natural world and all of the abundances that it has to offer - from land to sea and everything in between.</p>
+
+            </div>
+        </section>
+
+        <!-- <section class="conclusion">
+            <div class="content-wrapper">
+                <div class="separator">&#8230;</div>
+                
+                <p>In all, human-nature interactions can be complex.  In El Astillero, though, things are rather simple.  This coastal community embraces the natural world and all of the abundances that it has to offer - from land to sea and everything in between.</p>
+
+            </div>
+        </section> -->
+
+        <section class="method">
+            <div class="content-wrapper">
+                <h2 class="method">METHODOLOGY</h2>
+
+
+                <p>The analysis behind this visual project makes use of data that was collected via recorded participant interviews during the November 2021 - February 2022 period. Interviews were then transcribed by <a href="https://casacongo.org/" target="_blank" rel="noopener noreferrer">Casa Congo</a>
+                    staff members. A list of "stop words" for the Spanish language, provided by <a href="https://github.com/Alir3z4" target="_blank" rel="noopener noreferrer">Alireza Savand</a> was also used.  In order to analyze this data, the Python and JavaScript programming languages were used.  
+                    With Python, data was wrangled. Data was prepared for content analysis with the <a href="https://github.com/cjhutto/vaderSentiment#about-the-scoring" target="_blank" rel="noopener noreferrer">Valence Aware Dictionary for Sentiment Reasoning (VADER)</a> model from the 
+                    <a href="https://github.com/nltk/nltk" target="_blank" rel="noopener noreferrer">Natural Language Toolkit (NLTK)</a>. Using the multilingual toolkit, <a href="https://github.com/pysentimiento/pysentimiento/" target="_blank" rel="noopener noreferrer">Pysentimiento</a>, 
+                    sentiment analysis was conducted.
+                  
+                <p>The original Observable notebook used for this project can be accessed <a href="https://observablehq.com/@carolinecullinan/photo-voices-at-casa-congo" target="_blank" rel="noopener noreferrer">here</a>.  
+                    This app was developed with JavaScript.  Data visualizations were created with the <a href="https://d3js.org/" target="_blank" rel="noopener noreferrer">D3.js</a> JavaScript library.  The code behind this application is freely 
+                    available on <a href="https://github.com/carolinecullinan/cc-photovoice-app" target="_blank" rel="noopener noreferrer">GitHub</a>. </p>
+                
+
+                <p>This project was made possible through the support of <a href="https://casacongo.org/" target="_blank" rel="noopener noreferrer">Casa Congo</a> and the participation of community members in El Astillero. Special thanks to Alvaro, Douglas, Gabriela, Karen, Marcelo, Maria Elena, Medina, Victor, and Yorling for sharing their perspectives and experiences.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="script.js"></script>
+</body>
+</html>
