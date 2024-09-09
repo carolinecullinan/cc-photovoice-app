@@ -76,7 +76,7 @@ function populateGalleriesAndAudio() {
         }
     });
 }
-
+//test
 // Function to setup gallery navigation
 function setupGalleryNavigation(gallery) {
     const container = gallery.closest('.photo-gallery-container');
