@@ -58,7 +58,7 @@ function populateGalleriesAndAudio() {
         
         if (audioContainer) {
             // Add audio player
-            const audioPath = `public/audio/${name}.mp3`;
+            const audioPath = `/audio/${name}.mp3`;
             fetch(audioPath)
                 .then(response => {
                     if (response.ok) {
