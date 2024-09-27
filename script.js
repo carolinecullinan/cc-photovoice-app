@@ -57,22 +57,74 @@ function populateGalleriesAndAudio() {
         }
         
         if (audioContainer) {
-            // Add audio player
+            // Add audio player with progressive loading
             const audioPath = `/audio/${name}.mp3`;
-            fetch(audioPath)
-                .then(response => {
-                    if (response.ok) {
-                        const audio = document.createElement('audio');
-                        audio.controls = true;
-                        audio.src = audioPath;
-                        audioContainer.appendChild(audio);
-                    } else {
-                        audioContainer.style.display = 'none';
+            const audio = document.createElement('audio');
+            audio.controls = true;
+            audioContainer.appendChild(audio);
+
+            // Set up MediaSource
+            const mediaSource = new MediaSource();
+            audio.src = URL.createObjectURL(mediaSource);
+
+            mediaSource.addEventListener('sourceopen', () => {
+                const sourceBuffer = mediaSource.addSourceBuffer('audio/mpeg');
+                let index = 0;
+                const chunkSize = 64 * 1024; // 64 KB chunks
+
+                function loadNextChunk() {
+                    fetch(audioPath, {
+                        headers: {
+                            Range: `bytes=${index}-${index + chunkSize - 1}`
+                        }
+                    })
+                    .then(response => response.arrayBuffer())
+                    .then(chunk => {
+                        sourceBuffer.appendBuffer(chunk);
+                        index += chunk.byteLength;
+                        if (mediaSource.readyState === 'open') {
+                            loadNextChunk();
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading audio chunk:', error);
+                        if (index === 0) {
+                            audioContainer.style.display = 'none';
+                        }
+                    });
+                }
+                sourceBuffer.addEventListener('updateend', () => {
+                    if (!audio.paused && mediaSource.readyState === 'open') {
+                        loadNextChunk();
                     }
-                })
-                .catch(() => {
-                    audioContainer.style.display = 'none';
                 });
+
+                loadNextChunk();
+            });
+
+            audio.addEventListener('play', () => {
+                if (mediaSource.readyState === 'open') {
+                    loadNextChunk();
+                }
+            });
+        }
+    });
+            // Add audio player
+            // const audioPath = `/audio/${name}.mp3`;
+            // fetch(audioPath)
+            //     .then(response => {
+            //         if (response.ok) {
+            //             const audio = document.createElement('audio');
+            //             audio.controls = true;
+            //             audio.src = audioPath;
+            //             audioContainer.appendChild(audio);
+            //         } else {
+            //             audioContainer.style.display = 'none';
+            //         }
+            //     })
+            //     .catch(() => {
+            //         audioContainer.style.display = 'none';
+            //     });
         }
     });
 }
