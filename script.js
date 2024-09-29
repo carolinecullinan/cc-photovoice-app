@@ -168,8 +168,13 @@ function init() {
 }
 
 function createWordFrequencyChart() {
+
+    const screenWidth = window.innerWidth;
+    const chartContainer = document.getElementById("word-frequency-chart");
+    const containerWidth = chartContainer.offsetWidth;
     const margin = {top: 40, right: 30, bottom: 60, left: 100};
-    const width = 600 - margin.left - margin.right;
+    let useWidth = screenWidth > containerWidth ? containerWidth : screenWidth*0.95;
+    const width = useWidth - margin.left - margin.right;
     const height = 800 - margin.top - margin.bottom;
 
     const svg = d3.select("#word-frequency-chart")
@@ -229,7 +234,7 @@ function createWordFrequencyChart() {
             .attr("y", d => y(d.word))
             .attr("width", d => x(+d.frequency))
             .attr("height", y.bandwidth())
-            .attr("fill", "#69b3a2")
+            .attr("fill", "rgba(74, 140, 127, 0.9)")
             .on("mouseover", function(event, d) {
                 d3.select(this).attr("fill", "#28a745");  // Highlight color
                 tooltip.transition()
@@ -289,10 +294,12 @@ function createWordFrequencyChart() {
 }
 
 function createSentimentChart() {
+    const screenWidth = window.innerWidth;
     const chartContainer = document.getElementById("sentiment-chart");
     const containerWidth = chartContainer.offsetWidth;
     const margin = {top: 40, right: 30, bottom: 60, left: 60};
-    const width = containerWidth - margin.left - margin.right;
+    let useWidth = screenWidth > containerWidth ? containerWidth : screenWidth*0.95;
+    const width = useWidth - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
 
     const svg = d3.select("#sentiment-chart")
