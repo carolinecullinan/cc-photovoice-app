@@ -37,8 +37,42 @@ function handleStepEnter(response) {
 }
 
 // Function to populate photo galleries and audio players
+// function populateGalleriesAndAudio() {
+//     names.forEach(name => {
+//         const galleryId = `gallery-${name.replace(/\s+/g, '')}`;
+//         const audioContainerId = `audio-${name.replace(/\s+/g, '')}`;
+//         const gallery = document.getElementById(galleryId);
+//         const audioContainer = document.getElementById(audioContainerId);
+        
+//         if (gallery) {
+//             // Populate photo gallery
+//             for (let i = 1; i <= 5; i++) {
+//                 const img = document.createElement('img');
+//                 img.src = `images/${name.replace(/\s+/g, '_')}/${i}.jpg`;
+//                 img.alt = `${name}'s photo ${i}`;
+//                 img.style.display = i === 1 ? 'block' : 'none'; // Show only the first image
+//                 gallery.appendChild(img);
+//             }
+//             setupGalleryNavigation(gallery);
+//         }
+
+// Object to store the number of photos for each participant
+const participantPhotos = {
+    'Alvaro': 28,
+    'Douglas': 6,
+    'Gabriela': 5,
+    'Karen': 10,
+    'Marcelo': 48,
+    'Maria Elena': 12,
+    'Medina': 26,
+    'Victor': 17,
+    'Yorling': 26,
+    // Add other participants and their photo counts here
+};
+
+// Function to populate photo galleries and audio players
 function populateGalleriesAndAudio() {
-    names.forEach(name => {
+    Object.entries(participantPhotos).forEach(([name, photoCount]) => {
         const galleryId = `gallery-${name.replace(/\s+/g, '')}`;
         const audioContainerId = `audio-${name.replace(/\s+/g, '')}`;
         const gallery = document.getElementById(galleryId);
@@ -46,12 +80,13 @@ function populateGalleriesAndAudio() {
         
         if (gallery) {
             // Populate photo gallery
-            for (let i = 1; i <= 5; i++) {
+            for (let i = 1; i <= photoCount; i++) {
                 const img = document.createElement('img');
                 img.src = `images/${name.replace(/\s+/g, '_')}/${i}.jpg`;
                 img.alt = `${name}'s photo ${i}`;
                 img.style.display = i === 1 ? 'block' : 'none'; // Show only the first image
                 gallery.appendChild(img);
+                
             }
             setupGalleryNavigation(gallery);
         }
